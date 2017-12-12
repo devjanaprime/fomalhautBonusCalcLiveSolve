@@ -23,6 +23,35 @@ console.log(employees);
 
 function calculateEmployee( employee ){
   console.log( 'in calculateEmployee:', employee );
+  var bonusPercentage = 0;
+  // calculate reviewRating
+  /*********************************************
+  - Those who have a rating of a 2 or below should not receive a bonus.
+  - Those who have a rating of a 3 should receive a base bonus of 4% of their base annual income.
+  - Those who have a rating of a 4 should receive a base bonus of 6% of their base annual income.
+  - Those who have a rating of a 5 should receive a base bonus of 10% of their base annual income.
+  *********************************************/
+  if( employee.reviewRating === 3 ){
+    bonusPercentage = 0.04;
+  } // end 3
+  else if( employee.reviewRating === 4 ){
+    bonusPercentage = 0.06;
+  } // end 4
+  else if( employee.reviewRating === 5 ){
+    bonusPercentage = 0.10;
+  } // end 5
+  else{
+    bonusPercentage = 0.0;
+  } // end other
+  console.log( 'bonus after review rating check:', bonusPercentage );
+
+  // employee number
+
+  // max salary
+
+  // min/max bonus
+
+  // return an object
 } // end calculateEmployee
 
 calculateEmployee( scout );

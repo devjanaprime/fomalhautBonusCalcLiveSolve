@@ -32,19 +32,16 @@ function calculateEmployee( employee ){
     bonusPercentage = 0.0;
   } // end other
   console.log( 'bonus after review rating check:', bonusPercentage );
-
   // employee number
   if( employee.employeeNumber.length === 4 ){
     console.log( 'oldschool cat' );
     bonusPercentage += 0.05;
   } // end oldschool
-  console.log( 'bonusPercentage:', bonusPercentage );
   // max salary
   if( Number( employee.annualSalary ) > 65000 ){
     console.log( 'too high salary, adjusting' );
     bonusPercentage -= 0.01;
   } // end salary check
-  console.log( 'bonusPercentage:', bonusPercentage );
   // min/max bonus
   if( bonusPercentage > 0.13 ){
     bonusPercentage = 0.13;
@@ -52,8 +49,12 @@ function calculateEmployee( employee ){
   else if( bonusPercentage < 0.0 ){
     bonusPercentage = 0;
   } // end no negatives
-  console.log( 'bonusPercentage:', bonusPercentage );
   // return an object
+  var objectToReturn = {
+    name: employee.name,
+    bonusPercentage: bonusPercentage,
+    totalCompensation: Number( employee.annualSalary ) + Number( employee.annualSalary ) * bonusPercentage,
+    totalBonus: Number( employee.annualSalary ) * bonusPercentage
+  } // end object to return
+  return objectToReturn;
 } // end calculateEmployee
-
-calculateEmployee( scout );

@@ -6,31 +6,19 @@ class Employee{
     this.reviewRating = reviewRating;
   } // end constructor
 } // end Employee class
-
 var atticus = new Employee( "Atticus", "2405", "47000", 3 );
 var jem = new Employee( "Jem", "62347", "63500", 4 );
 var boo = new Employee( "Boo", "11435", "54000", 3 );
 var scout = new Employee( "Scout", "6243", "74750", 5 );
 var robert = new Employee( "Robert", "26835", "66000", 1 );
 var mayella = new Employee( "Mayella", "89068", "35000", 2 );
-
-
 var employees = [ atticus, jem, boo, scout, robert, mayella ];
-
-// YOU SHOULD NOT NEED TO CHANGE ANYTHING ABOVE THIS POINT
-
 console.log(employees);
 
 function calculateEmployee( employee ){
   console.log( 'in calculateEmployee:', employee );
   var bonusPercentage = 0;
   // calculate reviewRating
-  /*********************************************
-  - Those who have a rating of a 2 or below should not receive a bonus.
-  - Those who have a rating of a 3 should receive a base bonus of 4% of their base annual income.
-  - Those who have a rating of a 4 should receive a base bonus of 6% of their base annual income.
-  - Those who have a rating of a 5 should receive a base bonus of 10% of their base annual income.
-  *********************************************/
   if( employee.reviewRating === 3 ){
     bonusPercentage = 0.04;
   } // end 3
@@ -46,7 +34,11 @@ function calculateEmployee( employee ){
   console.log( 'bonus after review rating check:', bonusPercentage );
 
   // employee number
-
+  if( employee.employeeNumber.length === 4 ){
+    console.log( 'oldschool cat' );
+    bonusPercentage += 0.05;
+  } // end oldschool
+  console.log( 'bonusPercentage:', bonusPercentage );
   // max salary
 
   // min/max bonus

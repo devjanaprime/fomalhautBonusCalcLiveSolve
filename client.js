@@ -57,9 +57,15 @@ function calculateEmployee( employee ){
 
 function calculateEveryEmployee(){
   console.log( 'in calculateEveryEmployee' );
+  $( '#outputDiv' ).empty();
   // loop through employyes array and send each to be calculated
   for( var i=0; i< employees.length; i++ ){
-    console.log( calculateEmployee( employees[ i ] ) );
+    var calculatedEmployee = calculateEmployee( employees[ i ] );
+    console.log( 'calculatedEmployee:', calculatedEmployee );
+    $( '#outputDiv' ).append( '<h3>' + calculatedEmployee.name + '</h3>' );
+    $( '#outputDiv' ).append( '<p>bonusPercentage: ' + calculatedEmployee.bonusPercentage * 100 + '%</p>' );
+    $( '#outputDiv' ).append( '<p>totalBonus: $' + calculatedEmployee.totalBonus.toFixed( 2 ) +'</p>' );
+    $( '#outputDiv' ).append( '<p>totalCompensation: $' + calculatedEmployee.totalCompensation.toFixed( 2 ) + '</p>' );
   } // end loop
 } // end calculateEveryEmployee
 
@@ -79,3 +85,8 @@ function calculateReviewRatingBonus( reviewRating ){
     return 0.0;
   } // end other
 } // end calculateReviewRatingBonus
+
+$( document ).ready( function(){
+  console.log( 'JQ' );
+  calculateEveryEmployee();
+});

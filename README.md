@@ -11,3 +11,5 @@ Live solve of Bonus Calculator for Fomalhaut
 - 0.8 repeat through all employees
 - 0.9 abstract out reviewRating calculation into it's own function
 - 1.0 abstract out oldschool check into Employee class method
+----
+- 1.1 Display on DOM

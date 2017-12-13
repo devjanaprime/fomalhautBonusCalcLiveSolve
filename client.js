@@ -5,6 +5,14 @@ class Employee{
     this.annualSalary = annualSalary;
     this.reviewRating = reviewRating;
   } // end constructor
+  fifteenYearsOrLonger(){
+    if( this.employeeNumber.length === 4 ){
+      return true;
+    } // end oldschool
+    else{
+      return false;
+    } // end not oldschool
+  } // end fifteenYearsOrLonger
 } // end Employee class
 var atticus = new Employee( "Atticus", "2405", "47000", 3 );
 var jem = new Employee( "Jem", "62347", "63500", 4 );
@@ -21,10 +29,10 @@ function calculateEmployee( employee ){
   bonusPercentage += calculateReviewRatingBonus( employee.reviewRating );
   console.log( 'bonus after review rating check:', bonusPercentage );
   // employee number
-  if( employee.employeeNumber.length === 4 ){
-    console.log( 'oldschool cat' );
-    bonusPercentage += 0.05;
-  } // end oldschool
+  if( employee.fifteenYearsOrLonger() ){
+      console.log( 'oldschool cat' );
+      bonusPercentage += 0.05;
+  } // end call to fifteenYearsOrLonger method
   // max salary
   if( Number( employee.annualSalary ) > 65000 ){
     console.log( 'too high salary, adjusting' );
